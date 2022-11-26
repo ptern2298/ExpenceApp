@@ -46,18 +46,12 @@ useEffect(() => { readItemFromStorage() }, []);
       <NavigationContainer>
         <Stack.Navigator initialRouteName='Home'>
           <Stack.Screen name='Home'>
-            {(props) => <HomeScreen {...props} expenses = {expenses} deleteExpenses = {deleteExpense}/>}
+            { (props) => <HomeScreen {...props} expenses = {expenses} deleteExpenses = {deleteExpense}/> }
+          </Stack.Screen>
+          <Stack.Screen name='Camera'>
+            { (props) => <CameraScreen {...props} /> }
           </Stack.Screen>
         </Stack.Navigator>
       </NavigationContainer>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
