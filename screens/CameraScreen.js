@@ -50,21 +50,26 @@ export default function CameraScreen ({ route, navigation})
 
     if(hasPermission === null) { return <View/> }
     if(hasPermission === false) { return (
-        <View>
+        <View style={styles.container}>
             <Text>No access to camera</Text>
         </View>
     );
     }
 
     return (
-        <ScrollView style={}>
-            <Camera style={} type={type} ref={(r) => { camera = r; }}>
+        <ScrollView style={styles.container}>
+            <Camera style={styles.camera} type={type} ref={(r) => { camera = r; }}>
                 <View>
-                    <Pressable>
-                        <Text>Flip</Text>
+                    <Pressable style={styles.button} onPress={() => { setType(
+                        type === Camera.Constants.Type.back ? Camera.Constants.Type.front : Camera.Constants.Type.back)}}>
+                        <Text style={styles.text}>Flip</Text>
                     </Pressable>
                 </View>
             </Camera>
+            <View style={styles.buttonContainer}>
+                <Button title="Take Picture" style={styles.buttonTake}  onPress={ () =>{ takePic() } } />
+                <Button title="Pick Image" style={styles.buttonTake}  onPress={ () => { useImageGallery() } } />
+            </View>
         </ScrollView>
     );
 }

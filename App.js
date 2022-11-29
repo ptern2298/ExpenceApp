@@ -1,11 +1,11 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
 import CameraScreen from "./screens/CameraScreen";
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { useState, useEffect } from 'react';
 import { useAsyncStorage } from '@react=native-async-storage/async-storage';
 import HomeScreen from "./screens/HomeScreen";
+import CreateExpenseScreen from "./screens/CreateExpenseScreen";
+import ExpenseDetails from "./screens/ExpenseDetails";
 
 const Stack = createStackNavigator()
 export default function App() {
@@ -51,6 +51,12 @@ useEffect(() => { readItemFromStorage() }, []);
           <Stack.Screen name='Camera'>
             { (props) => <CameraScreen {...props} /> }
           </Stack.Screen>
+            <Stack.Screen name = 'CreateExpense'  >
+                {(props) => <CreateExpenseScreen {...props} addExpense = {addExpense}  expenses = {expenses} />}
+            </Stack.Screen>
+            <Stack.Screen name='ExpenseDetails'  >
+                {(props) => <ExpenseDetails {...props} expenses = {expenses}/>}
+            </Stack.Screen>
         </Stack.Navigator>
       </NavigationContainer>
   );
