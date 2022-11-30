@@ -5,6 +5,7 @@ import { useFonts } from "expo-font"
 
 import {useState, useEffect } from "react";
 import ExpenseList from "../components/ExpenseList";
+import TotalExpense from "../components/TotalExpense";
 
 export default function HomeScreen({navigation, route, expenses, deleteExpenses})
 {
@@ -28,7 +29,7 @@ export default function HomeScreen({navigation, route, expenses, deleteExpenses}
                     ):
                     (
                         <>
-                            <TotalExpense expensesData={expenses} />
+                            <TotalExpense expenses={expenses} />
                             {expenses.length > 0 ? (
                                 <>
                                     <Text style={styles.flatListTitle}>All Expenses</Text>

@@ -2,7 +2,7 @@ import CameraScreen from "./screens/CameraScreen";
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { useState, useEffect } from 'react';
-import { useAsyncStorage } from '@react=native-async-storage/async-storage';
+import { useAsyncStorage } from '@react-native-async-storage/async-storage';
 import HomeScreen from "./screens/HomeScreen";
 import CreateExpenseScreen from "./screens/CreateExpenseScreen";
 import ExpenseDetails from "./screens/ExpenseDetails";
