@@ -6,10 +6,10 @@ import { useFonts} from 'expo-font';
 export default function ExpenseItem(props) {
 
     const navigation = useNavigation();
-    const [loaded] = useFonts({{
+    const [loaded] = useFonts({
         Verdana: require('../assets/fonts/Verdana.ttf'),
         'Handlee-Regular': require('../assets/fonts/Handlee-Regular.ttf')
-    }});
+    });
 
     if(!loaded) { return null }
 
