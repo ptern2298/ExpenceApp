@@ -4,8 +4,9 @@ import { StatusBar } from "expo-status-bar";
 import { useFonts } from "expo-font"
 
 import {useState, useEffect } from "react";
+import ExpenseList from "../components/ExpenseList";
 
-export default function HomeScreen({})
+export default function HomeScreen({navigation, route, expenses, deleteExpenses})
 {
     const[loading, setLoading] = useState(false);
 
@@ -19,18 +20,51 @@ export default function HomeScreen({})
 
     return(
         <SafeAreaView>
-            <ActivityIndicator animating={loading} size="large" style={}/>
-            <>
-                <Text>All Expenses</Text>
-            </>
-            <>
-                <Text>No Expenses Yet!</Text>
-            </>
-            <Button title="Create Expense" onPress={}/>
-            <StatusBar style="auto"/>
+                {loading ? (
+                        <ActivityIndicator
+                            animating={loading}
+                            size="large"
+                            style={styles.loadingWheel}/>
+                    ):
+                    (
+                        <>
+                            <TotalExpense expensesData={expenses} />
+                            {expenses.length > 0 ? (
+                                <>
+                                    <Text style={styles.flatListTitle}>All Expenses</Text>
+                                    <ExpenseList expensesData={expenses} delete={deleteExpenses}/>
+                                </>
+                            ) : (
+                                <Text style={styles.noExpenses}>No Expenses Yet! </Text>
+                            )
+                            }
+                            <Button title="Create expense" onPress = {() => { navigation.navigate('CreateExpense') }} />
+                        </>
+                    )}
+            <StatusBar style="auto" />
         </SafeAreaView>
-    )
+    )}
 
-}
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+
+    },
+    loadingWheel: {
+        flex:1,
+        alignSelf: "center",
+
+        color:'red',
+    },
+    flatListTitle: {
+        margin: 5
+    },
+    noExpenses: {
+        textAlign: 'center',
+        margin: 50,
+        fontSize: 20
+
+    }
+
+});
