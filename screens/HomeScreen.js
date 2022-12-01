@@ -7,7 +7,7 @@ import {useState, useEffect } from "react";
 import ExpenseList from "../components/ExpenseList";
 import TotalExpense from "../components/TotalExpense";
 
-export default function HomeScreen({navigation, route, expenses, deleteExpenses})
+export default function HomeScreen({navigation, route, expenses, deleteExpense})
 {
     const[loading, setLoading] = useState(false);
 
@@ -33,7 +33,7 @@ export default function HomeScreen({navigation, route, expenses, deleteExpenses}
                             {expenses.length > 0 ? (
                                 <>
                                     <Text style={styles.flatListTitle}>All Expenses</Text>
-                                    <ExpenseList expenses={expenses} delete={deleteExpenses}/>
+                                    <ExpenseList expenses={expenses} deleteExpense={deleteExpense}/>
                                 </>
                             ) : (
                                 <Text style={styles.noExpenses}>No Expenses Yet! </Text>
