@@ -6,7 +6,7 @@ export default function ExpenseList(props) {
 
     return(
         <SafeAreaView>
-            <FlatList data={props.expenses} renderItem={({item}) =>
+            <FlatList style={styles.flatListContainer} data={props.expenses} renderItem={({item}) =>
                     <ExpenseItem price={item.price}
                                  title={item.title}
                                  deleteExpense={props.deleteExpense}

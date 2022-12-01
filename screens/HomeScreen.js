@@ -33,7 +33,7 @@ export default function HomeScreen({navigation, route, expenses, deleteExpenses}
                             {expenses.length > 0 ? (
                                 <>
                                     <Text style={styles.flatListTitle}>All Expenses</Text>
-                                    <ExpenseList expensesData={expenses} delete={deleteExpenses}/>
+                                    <ExpenseList expenses={expenses} delete={deleteExpenses}/>
                                 </>
                             ) : (
                                 <Text style={styles.noExpenses}>No Expenses Yet! </Text>

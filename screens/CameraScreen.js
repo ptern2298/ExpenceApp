@@ -29,16 +29,16 @@ export default function CameraScreen ({ route, navigation})
             exif: true,
             base64: true,
         };
-        camera.TakePictureAsync(options).then(({ uri, width, height, exif, base64}) => {
+        camera.takePictureAsync(options).then(({ uri, width, height, exif, base64}) => {
             route.params.setCameraImage(uri)
-            navigation.navigate('',)
+            navigation.navigate('CreateExpense')
         });
     };
 
     const useImageGallery = async () => {
 
         let result = await ImagePicker.launchImageLibraryAsync({
-            madiaTypes: ImagePicker.MediaTypeOptions.All,
+            mediaTypes: ImagePicker.MediaTypeOptions.All,
             allowsEditing: true,
             aspect: [3,4],
             quality: 1,
@@ -68,7 +68,7 @@ export default function CameraScreen ({ route, navigation})
             </Camera>
             <View style={styles.buttonContainer}>
                 <Button title="Take Picture" style={styles.buttonTake}  onPress={ () =>{ takePic() } } />
-                <Button title="Pick Image" style={styles.buttonTake}  onPress={ () => { useImageGallery() } } />
+                <Button title="Pick Image" style={styles.buttonTake}  onPress={ () => { useImageGallery()} } />
             </View>
         </ScrollView>
     );

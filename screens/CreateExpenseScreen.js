@@ -45,7 +45,7 @@ export default function CreateExpenseScreen( { route, navigation, addExpense }) 
     }
 
     const setCameraImage = (data) => { onChangeImage(data) }
-    const useCameraImage =  () => { navigation.navigate('CameraScreen', {setCameraImage}) }
+    const useCameraImage =  () => { navigation.navigate('Camera', {setCameraImage}) }
 
     return (
         <KeyboardAvoidingView behavior={Platform.OS === 'ios' ? 'padding' : 'height'} style={styles.container}>

@@ -17,7 +17,7 @@ export default function ExpenseItem(props) {
 
     return (
         <View style={styles.item}>
-            <Pressable style={styles.itemContainer} onPress={() => { navigation.navigate('ExpenseDetails', {props}) }}>
+            <Pressable style={styles.itemContainer} onPress={() => { navigation.navigate('ExpenseDetails', { props }) }}>
                 <Text style={styles.itemMoney}>${props.price}</Text>
                 <Text style={styles.itemTitle}>${props.title}</Text>
             </Pressable>

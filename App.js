@@ -12,7 +12,7 @@ export default function App() {
 const [expenses, setExpenses] = useState([
     { id: 0, title: 'McDonalds', price: 9.99 },
     { id: 1, title: 'Shoppers', price: 300.0 },
-    { id: 2, title: 'Stapes', price: 250.0 },
+    { id: 2, title: 'Stapes', price: 250.0 }
 ])
 
 const { getItem, setItem } = useAsyncStorage('ExpenseApp');
@@ -46,7 +46,7 @@ useEffect(() => { readItemFromStorage() }, []);
       <NavigationContainer>
         <Stack.Navigator initialRouteName='Home'>
           <Stack.Screen name='Home'>
-            { (props) => <HomeScreen {...props} expenses = {expenses} deleteExpenses = {deleteExpense}/> }
+            { (props) => <HomeScreen {...props} expenses = {expenses} deleteExpense = {deleteExpense}/> }
           </Stack.Screen>
           <Stack.Screen name='Camera'>
             { (props) => <CameraScreen {...props} /> }
